@@ -14,8 +14,11 @@ blocks:
         - name: make lint
           commands:
             - echo "lint your code"
+            - sudo root
             - mkdir /dov
             - ls
+        - name: 'Job #2'
+          commands: []
   - name: Unit tests
     task:
       prologue:
