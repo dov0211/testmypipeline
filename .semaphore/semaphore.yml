@@ -1,36 +1,14 @@
 version: v1.0
-name: First pipeline
+name: Docker
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Lint
+  - name: Build
     task:
-      prologue:
-        commands:
-          - checkout
       jobs:
-        - name: make lint
+        - name: docker build
           commands:
-            - echo "lint your code"
-            - sudo root
-            - mkdir /dov
-            - ls
-        - name: 'Job #2'
-          commands: []
-  - name: Unit tests
-    task:
-      prologue:
-        commands:
-          - checkout
-      jobs:
-        - name: Unit tests 1/3
-          commands:
-            - echo "run 1/3"
-        - name: Unit tests 2/3
-          commands:
-            - echo "run 2/3"
-        - name: Unit tests 3/3
-          commands:
-            - echo "run 3/3"
+            - checkout
+            - docker build -t your-image .
