@@ -5,10 +5,11 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Build
+  - name: Build123
     task:
       jobs:
-        - name: docker build
+        - name: docker1 build
           commands:
             - checkout
             - docker build -t your-image .
+            - hello world
